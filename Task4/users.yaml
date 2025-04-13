@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin
+  namespace: default 
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: writer
+  namespace: default 
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: reader 
+  namespace: default 

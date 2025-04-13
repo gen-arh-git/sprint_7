@@ -1,0 +1,18 @@
+@startuml
+
+!include <C4/C4_Context>
+title Smart Home Context Diagram
+
+Person(User, "Собственик", "Пользватель мобильного приложения")
+System_Boundary(PropDevelopment, "PropDevelopment")	{
+	System(PropSystem, "PropDevelopment System")
+	}
+
+System_Ext(Intercom, "Интеллектуальный домофон", "Открытие по звонку и биометрическое распознавание лиц для автоматического доступа")
+System_Ext(Barrier, "Интеллектуальный шлагбаум", "Классическое и автоматическое открытие по распознаванию номеров разрешённых автомобилей.")
+
+Rel(User, PropSystem, "Мобильное приложение для собствеников", "HTTPS, JWT")
+Rel(PropSystem, Intercom, "Передача команд, управляющих домофоном", "REST API")
+Rel(PropSystem, Barrier, "Передача команд, управляющих шлагбаум", "REST API")
+
+@enduml
